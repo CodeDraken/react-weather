@@ -1,9 +1,12 @@
 import React from 'react';
 
-const Examples = (props) => {
+const Examples = ( props ) => {
   return (
-    <h3>Examples component</h3>
-    );
+    <div>
+      <h3>Examples</h3>
+      <p>Examples page</p>
+    </div>
+  );
 };
 
 module.exports = Examples;
