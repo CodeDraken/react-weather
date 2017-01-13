@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { Route, Router, IndexRoute, hashHistory } from 'react-router';
 
-import Main from './components/Main';
-import Weather from './components/Weather';
-import About from './components/About';
-import Examples from './components/Examples';
+import Main from 'Main';
+import Weather from 'Weather';
+import About from 'About';
+import Examples from 'Examples';
 
 // load foundation
 require( 'style!css!foundation-sites/dist/foundation.min.css' );

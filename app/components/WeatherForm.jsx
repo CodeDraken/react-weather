@@ -5,7 +5,7 @@ class WeatherForm extends Component {
     super( props );
   }
   onFormSubmit = ( e ) => {
-    e.preventDefault;
+    e.preventDefault();
     var location = this.refs.location.value;
 
     if ( location.length > 0 ) {
