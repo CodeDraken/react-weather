@@ -3,7 +3,7 @@ import React from 'react';
 const About = ( props ) => {
   return (
     <div>
-      <h3 className="text-center">About</h3>
+      <h1 className="text-center page-title">About</h1>
       <p>
         This is a simple one page application built using React & NodeJS. It fetches data from a weather API
       </p>
