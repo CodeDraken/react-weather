@@ -11,12 +11,13 @@ export default {
 
     return axios.get( requestUrl ).then(( res ) => {
       if ( res.data.cod && res.data.message ) {
-        throw new Error( res.data.message );
+
+        throw new Error( 'Unable to fetch weather for that location.' );
       } else {
         return res.data;
       }
     }, ( res ) => {
-      throw new Error( res.data.message );
+      throw new Error( 'Unable to fetch weather for that location.' );
     });
 
   }

@@ -1,19 +1,19 @@
 import React, { Component } from 'react';
 import Nav from 'Nav';
 
-class Main extends Component {
-  constructor( props ) {
-    super( props );
-  }
-  render() {
-    return (
-      <div>
-        <Nav />
-        <h2>Main Component</h2>
-        {this.props.children}
+const Main = ( props ) => {
+  return (
+    <div>
+      <Nav />
+
+      <div className="row">
+        <div className="columns small-centered medium-6 large-4">
+          {props.children}
+        </div>
       </div>
-    );
-  }
+
+    </div>
+  )
 }
 
 module.exports = Main;

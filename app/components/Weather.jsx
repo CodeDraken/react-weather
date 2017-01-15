@@ -5,6 +5,7 @@ import React, { Component } from 'react';
 import WeatherForm from 'WeatherForm';
 import WeatherMessage from 'WeatherMessage';
 import openWeatherMap from 'openWeatherMap';
+import ErrorModal from 'ErrorModal';
 
 class Weather extends Component {
   constructor( props ) {
@@ -17,7 +18,12 @@ class Weather extends Component {
   }
 
   handleSearch = ( search ) => {
-    this.setState( { isLoading: true });
+
+    this.setState( {
+      isLoading: true,
+      errorMessage: undefined
+    });
+
     openWeatherMap.getTemp( search ).then(( data ) => {
       this.setState( {
         location: data.name,
@@ -27,28 +33,37 @@ class Weather extends Component {
 
     }, ( err ) => {
       this.setState( {
-        isLoading: false
+        isLoading: false,
+        errorMessage: err.message
       });
-      alert( 'failed to fetch weather', err );
     });
   }
 
   render() {
-    var { isLoading, temp, location } = this.state;
+    var { isLoading, temp, location, errorMessage } = this.state;
 
     function renderMessage() {
       if ( isLoading ) {
-        return <p>Fetching weather...</p>
+        return <p className="text-center">Fetching weather...</p>
       } else if ( temp && location ) {
         return <WeatherMessage location={location} temp={temp} />
       }
     }
 
+    function renderError() {
+      if ( typeof errorMessage === 'string' ) {
+        return (
+          <ErrorModal message={errorMessage} />
+        )
+      }
+    }
+
     return (
       <div>
-        <h3>Get Weather</h3>
+        <h1 className="text-center">Get Weather</h1>
         <WeatherForm onSearch={this.handleSearch} />
         {renderMessage()}
+        {renderError()}
       </div>
     );
   }
