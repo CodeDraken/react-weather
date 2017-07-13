@@ -1,7 +1,7 @@
 // Modules
 import React, { Component } from 'react';
 
-// Componnents
+// Components
 import WeatherForm from 'WeatherForm';
 import WeatherMessage from 'WeatherMessage';
 import openWeatherMap from 'openWeatherMap';
